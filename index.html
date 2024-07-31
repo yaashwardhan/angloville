@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Yashwardhan Deshmukh - Angloville Generator</title>
+        
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+        <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+      
+        <!-- Scripts -->
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+      
+        <!-- Jekyll SEO tag -->
+        <meta name="generator" content="Jekyll v3.9.0" />
+        <meta property="og:title" content="Yashwardhan A. Deshmukh" />
+        <meta name="author" content="Yashwardhan A. Deshmukh" />
+        <meta property="og:locale" content="en_US" />
+        <meta name="description"
+          content="Yashwardhan A. Deshmukh is a Research Engineer at the Amazon-Max Planck Science Hub, Germany. His research focuses on the use of machine learning for science and engineering applications, such as surrogate modeling and computational cost reduction of simulating complex systems. He is currently using deep learning and finite element analysis to simulate clothing pressure and deformation analysis on a human body, given parametric clothing materials, sizes, and body shapes." />
+        <meta property="og:description"
+          content="Yashwardhan A. Deshmukh is a Research Engineer at the Amazon-Max Planck Science Hub, Germany. His research focuses on the use of machine learning for science and engineering applications, such as surrogate modeling and computational cost reduction of simulating complex systems. He is currently using deep learning and finite element analysis to simulate clothing pressure and deformation analysis on a human body, given parametric clothing materials, sizes, and body shapes." />
+        <link rel="canonical" href="http://localhost:4000/" />
+        <meta property="og:url" content="http://localhost:4000/" />
+        <meta property="og:site_name" content="Yashwardhan A. Deshmukh" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary" />
+        <meta property="twitter:title" content="Yashwardhan A. Deshmukh" />
+        <meta name="twitter:site" content="@" />
+        <meta name="twitter:creator" content="@Yashwardhan A. Deshmukh" />
+        <script type="application/ld+json">
+        {
+          "@context":"https://schema.org",
+          "@type":"WebSite",
+          "author":{"@type":"Person","name":"Yashwardhan A. Deshmukh"},
+          "description":"Yashwardhan A. Deshmukh is a Research Engineer at the Amazon-Max Planck Science Hub, Germany. His research focuses on the use of machine learning for science and engineering applications, such as surrogate modeling and computational cost reduction of simulating complex systems. He is currently using deep learning and finite element analysis to simulate clothing pressure and deformation analysis on a human body, given parametric clothing materials, sizes, and body shapes.",
+          "headline":"Home",
+          "name":"Yashwardhan A. Deshmukh",
+          "publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/assets/images/logo1.png"},"name":"Yashwardhan A. Deshmukh"},
+          "url":"http://localhost:4000/"
+        }
+        </script>
+      
+        <!-- Custom styles -->
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px;
+                background-color: white;
+            }
+        
+            .container {
+                text-align: center;
+                padding: 20px;
+                background-color: #fff;
+                border-radius: 8px;
+                margin-bottom: 20px;
+                width: 100%;
+                max-width: 1000px;
+            }
+        
+            input[type="number"] {
+                margin-top: 10px;
+                margin-bottom: 20px;
+                padding: 5px;
+                width: calc(100% - 20px);
+            }
+        
+            button {
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+        
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+        
+            table, th, td {
+                border: 1px solid #000;
+            }
+        
+            th, td {
+                padding: 10px;
+                text-align: left;
+            }
+        
+            .divider {
+                margin: 20px 0;
+                height: 2px;
+                background-color: #000;
+            }
+        
+            #results {
+                margin-top: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+        
+            .variation-container {
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+            }
+        
+            .left, .right {
+                width: 48%;
+            }
+        
+            .drop-container {
+                position: relative;
+                display: flex;
+                gap: 10px;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 200px;
+                padding: 20px;
+                border-radius: 10px;
+                border: 2px dashed #555;
+                color: #444;
+                cursor: pointer;
+                transition: background .2s ease-in-out, border .2s ease-in-out;
+            }
+        
+            .drop-container:hover {
+                background: #eee;
+                border-color: #111;
+            }
+        
+            .drop-container:hover .drop-title {
+                color: #222;
+            }
+        
+            .drop-title {
+                color: #444;
+                font-size: 20px;
+                font-weight: bold;
+                text-align: center;
+                transition: color .2s ease-in-out;
+            }
+        
+            input[type=file]::file-selector-button {
+                margin-right: 20px;
+                border: none;
+                background: #084cdf;
+                padding: 10px 20px;
+                border-radius: 10px;
+                color: #fff;
+                cursor: pointer;
+                transition: background .2s ease-in-out;
+            }
+        
+            input[type=file]::file-selector-button:hover {
+                background: #0d45a5;
+            }
+        
+            .input-stepper {
+                display: flex;
+                align-items: center;
+            }
+        
+            .input-stepper button {
+                background-color: #084cdf;
+                color: #fff;
+                border: none;
+                padding: 10px;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+                transition: background 0.2s ease-in-out;
+            }
+        
+            .input-stepper button:hover {
+                background-color: #0d45a5;
+            }
+        
+            .input-stepper input {
+                width: 60px;
+                text-align: center;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                padding: 10px;
+                margin: 0 5px;
+                font-size: 16px;
+            }
+        
+            .input-stepper input::-webkit-outer-spin-button,
+            .input-stepper input::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+        
+            .rounded-box {
+                border: 1px solid #e0e0e0;
+                border-radius: 10px;
+                background-color: #f9f9f9;
+                padding: 30px;
+                margin-bottom: 0px;
+                width: 100%;
+                max-width: 1000px;
+                margin-left: auto;
+                margin-right: auto;
+            }    
+        
+            .table-container {
+                display: flex;
+                align-items: center;
+            }
+        
+            .ip-cell {
+                display: flex;
+                align-items: center;
+                white-space: nowrap;
+                position: relative;
+            }
+        
+            .arrow {
+                flex-grow: 1;
+                position: relative;
+                height: 1px;
+                background-color: black;
+                margin: 0 10px;
+            }
+        
+            .arrow::before {
+        content: '';
+        position: absolute;
+        right: -5px;
+        top: -3px;
+        border: solid black;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 3px;
+        transform: rotate(-45deg);
+    }
+
+    .shadow__btn {
+        padding: 10px 20px;
+        border: none;
+        font-size: 14px;
+        color: #fff;
+        border-radius: 12px;
+        letter-spacing: 1px;
+        font-weight: 600;
+        text-transform: uppercase;
+        transition: 0.5s;
+        transition-property: box-shadow;
+        background: #084cdf;
+        box-shadow: 0 0 5px #084cdf;
+    }
+
+    .shadow__btn:hover {
+        box-shadow: 0 0 3px #084cdf,
+                    0 0 10px #084cdf,
+                    0 0 20px #084cdf,
+                    0 0 40px #084cdf;
+    }
+
+    .divider {
+        height: 1px;
+        background-color: #ccc;
+        margin: 20px 0;
+    }
+        </style>
+        
+      </head>
+      <div class="column">
+        <div class="columns is-centered" style="display: flex; align-items: center;">
+          <nav class="navbar" role="navigation" aria-label="main navigation" style="display: flex; align-items: center;">
+            <div class="navbar-menu" style="justify-content: center;">
+              <div class="navbar-start">
+                <!-- Navbar items -->
+                <a class="navbar-item" href="javascript:void(0)" onclick="scrollToAlgo()">The Algorithm</a>
+                <span
+                  style="border-right: 1px solid lightgray; height: 20px; display: inline-block; vertical-align: middle; margin-top: 10px; margin-left: 5px; margin-right: 5px;"></span>
+                <a class="navbar-item" href="javascript:void(0)" onclick="scrollToDev()">Developer</a>
+              <div class="navbar-end">
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+      <br>
+      <body>
+        <figure class="image">
+            <img src="/assets/images/angloville.png" alt="Yashwardhan A. Deshmukh"
+            style="display: block; margin: 0 auto; width: 100%; max-width: 250px; min-width: 200px;">
+            </figure>
+        <div class="container" style="align-items: center;">
+            <h1 style="margin-top:-20px;font-family: 'Poppins', sans-serif; font-weight:bold; font-size: 42px; color: #444444;">Generator</h1><br>
+            
+            <div class="upload-container">
+                <label for="fileInput" class="drop-container">
+                    <span class="drop-title" style="font-family: 'Poppins', sans-serif;">Drop files here</span>
+                    or
+                    <input type="file" id="fileInput" accept=".xlsx" required>
+                </label>
+            </div>
+            <div id="fileInfo" style="display:none;"></div>
+            <div id="questions" style="display:none;">
+
+                <div class="rounded-box" style=" max-width: 600px; display: flex; flex-direction: column; align-items: center; gap: 20px;">
+                    <div style="display: flex; flex-direction: column; gap: 20px;">
+                        <div style="display: flex; flex-direction: row; align-items: center; gap: 10px;">
+                            <label for="participantsPerIp" style="margin-right: 10px;font-weight:bold;font-size:18px;font-family: 'Poppins', sans-serif;">Participants per IP:</label>
+                            <div class="input-stepper">
+                                <button onclick="stepperChange('participantsPerIp', -1)">-</button>
+                                <input type="number" id="participantsPerIp" min="1" value="2">
+                                <button onclick="stepperChange('participantsPerIp', 1)">+</button>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: row; align-items: center; gap: 10px;">
+                            <label for="numVariations" style="margin-right: 10px;font-weight:bold;font-size:18px;font-family: 'Poppins', sans-serif;">Conversation Count:</label>
+                            <div class="input-stepper">
+                                <button onclick="stepperChange('numVariations', -1)">-</button>
+                                <input type="number" id="numVariations" min="1" value="2">
+                                <button onclick="stepperChange('numVariations', 1)">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align: center; margin-top: 20px;">
+                        <button onclick="generateVariations()" class="shadow__btn" style="font-family: 'Poppins', sans-serif;">Generate Sessions</button>
+                    </div>
+                </div>
+                </div>
+                <hr id='variationtext' style="padding:0px; margin-top: 40px; margin-left: 0px;margin-right: 0px; margin-bottom: 40px; height: 5px;">
+            </div>
+        </div>
+        <div id="results" class="container"></div>
+
+        
+        <!-- Include XLSX library -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+        
+        <!-- Custom script -->
+        <script>
+            let participants = [];
+            let ips = [];
+            let previousPairs = new Set();
+            let ipAssignments = {}; // Dictionary to track participants assigned to each IP
+            let previousActivityIPs = []; // Track the last set of activity IPs
+    
+            document.getElementById('fileInput').addEventListener('change', handleFile, false);
+    
+            function handleFile(e) {
+                var files = e.target.files, f = files[0];
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var data = new Uint8Array(e.target.result);
+                    var workbook = XLSX.read(data, {type: 'array'});
+                    var firstSheet = workbook.Sheets[workbook.SheetNames[0]];
+                    var jsonData = XLSX.utils.sheet_to_json(firstSheet, {header:1});
+                    parseData(jsonData, f.name);
+                    document.getElementById('questions').style.display = 'block';
+                    document.getElementById('fileInfo').style.display = 'block';
+                    document.querySelector('.upload-container').style.display = 'none';
+                };
+                reader.readAsArrayBuffer(f);
+            }
+    
+            function parseData(data, fileName) {
+                participants = data.slice(1).map(row => row[0]).filter(name => name);
+                ips = data.slice(1).map(row => row[1]).filter(name => name);
+                
+                // Initialize ipAssignments with empty arrays
+                ips.forEach(ip => {
+                    ipAssignments[ip] = [];
+                });
+    
+                var fileInfoDiv = document.getElementById('fileInfo');
+                // Clear previous content
+                fileInfoDiv.innerHTML = '';
+                // Append new content
+                fileInfoDiv.innerHTML = `<div style="padding: 0px; border-radius: 10px; max-width: 400px; margin: 0 auto;">
+                <h2 style="font-weight:bold;font-size:18px;font-family: 'Poppins', sans-serif; color: #4CAF50;">Upload Successful!</h2>
+                <p><strong>Uploaded File:</strong> <em style="color: #0087e6;">${fileName}</em></p>
+
+                <p><strong>Number of Participants:</strong> ${participants.length}</p>
+                <p><strong>Number of IPs:</strong> ${ips.length}</p></div><br>`;}
+
+        function generateVariations() {
+            const participantsPerIp = parseInt(document.getElementById('participantsPerIp').value);
+            const numVariations = parseInt(document.getElementById('numVariations').value);
+            let variations = [];
+            let currentAvailableParticipants = [...participants];
+
+            for (let i = 0; i < numVariations; i++) {
+                let currentVariation = [];
+                let participantsForConversations = getRandomCombination(currentAvailableParticipants, Math.floor(participants.length / 2));
+                let participantsForActivities = currentAvailableParticipants.filter(p => !participantsForConversations.includes(p));
+                let usedIPs = getRandomCombination(ips, ips.length);
+
+                for (let ip of usedIPs) {
+                    if (participantsForConversations.length < participantsPerIp) {
+                        break;
+                    }
+
+                    let combination = null;
+                    for (let j = 0; j < 10; j++) {
+                        combination = getRandomCombination(participantsForConversations, participantsPerIp);
+                        if (!hasPreviousPair(combination) && !hasPreviousIpAssignment(ip, combination)) {
+                            break;
+                        }
+                    }
+
+                    if (combination && !hasPreviousPair(combination) && !hasPreviousIpAssignment(ip, combination)) {
+                        addPairsToSet(combination);
+                        addIpAssignments(ip, combination);
+                        currentVariation.push({ ip, participants: combination });
+                        participantsForConversations = participantsForConversations.filter(p => !combination.includes(p));
+                    }
+                }
+
+                // Ensure no IPs are repeated consecutively for activities
+                let activityIPs = ips.filter(ip => !currentVariation.some(pair => pair.ip === ip));
+                do {
+                    activityIPs = getRandomCombination(activityIPs, activityIPs.length);
+                } while (arraysEqual(activityIPs, previousActivityIPs));
+                previousActivityIPs = activityIPs;
+
+                variations.push({
+                    conversations: currentVariation,
+                    activities: {
+                        ips: activityIPs,
+                        participants: participantsForActivities
+                    }
+                });
+                currentAvailableParticipants = participants; // Reset the participants pool for the next variation
+            }
+
+            displayVariations(variations);
+            scrollToVariations()
+        }
+
+        function hasPreviousPair(combination) {
+            for (let i = 0; i < combination.length; i++) {
+                for (let j = i + 1; j < combination.length; j++) {
+                    if (previousPairs.has(`${combination[i]}-${combination[j]}`) || previousPairs.has(`${combination[j]}-${combination[i]}`)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        function hasPreviousIpAssignment(ip, combination) {
+            return combination.some(participant => ipAssignments[ip].includes(participant));
+        }
+
+        function addPairsToSet(combination) {
+            for (let i = 0; combination && i < combination.length; i++) {
+                for (let j = i + 1; j < combination.length; j++) {
+                    previousPairs.add(`${combination[i]}-${combination[j]}`);
+                    previousPairs.add(`${combination[j]}-${combination[i]}`);
+                }
+            }
+        }
+
+        function addIpAssignments(ip, combination) {
+            combination.forEach(participant => {
+                ipAssignments[ip].push(participant);
+            });
+        }
+
+        function getRandomCombination(arr, size) {
+            let shuffled = arr.slice(0), i = arr.length, temp, index;
+            while (i--) {
+                index = Math.floor((i + 1) * Math.random());
+                temp = shuffled[index];
+                shuffled[index] = shuffled[i];
+                shuffled[i] = temp;
+            }
+            return shuffled.slice(0, size);
+        }
+
+        function arraysEqual(a, b) {
+            if (a.length !== b.length) return false;
+            for (let i = 0; i < a.length; i++) {
+                if (a[i] !== b[i]) return false;
+            }
+            return true;
+        }
+
+        function displayVariations(variations) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '<h2 style="margin-top:-80px;margin-bottom:20px;font-weight:bold;font-size: 28px;">Generated Unique Sessions</h2>';
+
+            variations.forEach((variation, i) => {
+                const roundedBox = document.createElement('div');
+                roundedBox.className = 'rounded-box';
+
+                const variationContainer = document.createElement('div');
+                variationContainer.className = 'variation-container';
+
+                const leftDiv = document.createElement('div');
+                leftDiv.className = 'left';
+                leftDiv.innerHTML = `<h2 style="margin-bottom:-10px;font-weight:bold;font-size: 20px;">Conversation Session ${i + 1}</h2>`;
+
+                const table = document.createElement('table');
+                table.innerHTML = `<tr><th>IP</th><th>Participants</th></tr>`;
+                variation.conversations.forEach((pair, index) => {
+                    const row = document.createElement('tr');
+                    const colors = ['#e0f7fa', '#e8f5e9', '#fff9c4'];
+                    row.style.backgroundColor = colors[index % colors.length];
+                    row.innerHTML = `
+                        <td class="ip-cell">${pair.ip}<span class="arrow"></span></td>
+                        <td>${pair.participants.join(', ')}</td>
+                    `;
+                    table.appendChild(row);
+                });
+                leftDiv.appendChild(table);
+
+                const rightDiv = document.createElement('div');
+                rightDiv.className = 'right';
+                rightDiv.innerHTML = `<h2 style="font-weight:bold;font-size: 20px;">Activity Session ${i + 1}</h2><br>`;
+
+                const activitiesDiv = document.createElement('div');
+                activitiesDiv.innerHTML = `
+                    <p style="font-weight:bold; display:inline;">IPs:</p>
+                    <p style="display:inline;"> ${variation.activities.ips.join(', ')}</p>
+                    <br>
+                    <p style="font-weight:bold; display:inline;">Participants:</p>
+                    <p style="display:inline;"> ${variation.activities.participants.join(', ')}</p>
+                `;
+
+                rightDiv.appendChild(activitiesDiv);
+
+                variationContainer.appendChild(leftDiv);
+                variationContainer.appendChild(rightDiv);
+                roundedBox.appendChild(variationContainer);
+                resultsDiv.appendChild(roundedBox);
+
+                const divider = document.createElement('div');
+                divider.className = 'divider';
+                resultsDiv.appendChild(divider);
+            });
+
+            if (variations.length === 0) {
+                resultsDiv.innerHTML = '<h2>No more unique conversations possible</h2>';
+            }
+        }
+
+    </script>
+    <script>
+    function stepperChange(id, step) {
+        const input = document.getElementById(id);
+        let value = parseInt(input.value, 10);
+        value += step;
+        if (value < parseInt(input.min, 10)) {
+            value = parseInt(input.min, 10);
+        }
+        input.value = value;
+    }
+    </script>
+    <script>
+    function scrollToVariations() {
+        document.getElementById('variationtext').scrollIntoView({ behavior: 'smooth' });
+    }
+    </script>
+    <script>
+    function scrollToAlgo() {
+        document.getElementById('algo').scrollIntoView({ behavior: 'smooth' });
+    }
+    </script>
+    <script>
+    function scrollToDev() {
+        document.getElementById('dev').scrollIntoView({ behavior: 'smooth' });
+    }
+    </script>
+  
+    </div>
+    
+<div id="algo" style="width: 70%; background-color: white; padding: 20px 20px;">
+    <hr style="padding:0px; margin-top: 10px; margin-left: 0px;margin-right: 0px; margin-bottom: 10px; height: 5px;">
+    <div class="container" style="max-width: 1000px; margin: 0 auto; text-align: center;">
+        <h2 style="font-family: 'Poppins', sans-serif; font-weight: bold; font-size: 18px; color: #444;">How the Algorithm Works</h2>
+        <p style="font-family: 'Poppins', sans-serif; font-size: 16px; color: #444; text-align: left; margin-top: 10px;">
+            The algorithm is designed to generate unique conversation sessions and activity sessions for participants based on their International Participants (IPs). Here's a brief overview of how it operates:
+        </p>
+        <ul style="font-family: 'Poppins', sans-serif; font-size: 16px; color: #444; text-align: left; margin-top: 20px; list-style-type: disc; padding-left: 20px;">
+            <li><strong>Unique Pairings:</strong> Ensure each participant pair is unique and not repeated in subsequent sessions.</li>
+            <li><strong>IP Assignment:</strong> Each IP should be assigned a specified number of participants without repeating the same participants for the same IP in any of the other sessions. Note: This feature was a little tricky to implement, so please contact me for any bugs.</li>
+            <li><strong>Conversation and Activity Separation:</strong> Split participants into two groups for conversations and activities, ensuring they always have some IPs with them provided number of IPs > number of participants.</li>
+            <li><strong>Randomization:</strong> Randomly shuffle and assign participants to IPs to ensure a fair and varied distribution.</li>
+            <li><strong>Avoid Consecutive Repeats:</strong> Ensure no consecutive repetition of IPs in activity groups to maintain variety.</li>
+            <li><strong>Participant Pool Reset:</strong> Reset the participant pool for each variation to ensure fresh assignments for each session.</li>
+            <li><strong>Maximum Attempts for Unique Pairs:</strong> Allow multiple attempts to find unique pairings and IP assignments, with a fallback to previous configurations if needed.</li>
+        </ul>
+    </div>
+</div>
+<div id="dev" style="width: 70%; background-color: white; padding: 20px 20px;">
+    <hr style="padding:0px; margin-top: 10px; margin-left: 0px;margin-right: 0px; margin-bottom: 10px; height: 5px;">
+    <div class="container" style="max-width: 1000px; margin: 0 auto; text-align: center;">
+        <h2 style="font-family: 'Poppins', sans-serif; font-weight: bold; font-size: 18px; color: #444;">The Developer: Yash (#Best IP)</h2>
+        <p style="font-family: 'Poppins', sans-serif; font-size: 15px; color: #444; text-align: left; margin-top: 10px;">
+            Bugs? Need Help? email me at <i><span style="color: gray;">yaashwardhan@gmail.com</span></i><br>
+            Who Am I? <a href="https://yaashwardhan.github.io" style="color: black;font-weight: bold;">Click -></a> <a href="https://yaashwardhan.github.io" style="color: blue;font-weight: bold;">yaashwardhan.github.io</a>
+        </p>
+        
+    
+    </div>
+</div>
+</body>
+</html>
